@@ -1,7 +1,10 @@
+#version 300 es
 precision highp float;
 
 uniform vec4 u_color;
 
+out vec4 finalColor;
+
 void main(){
-	gl_FragColor = u_color;
+	finalColor = u_color;
 }

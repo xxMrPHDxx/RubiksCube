@@ -6,6 +6,9 @@
 class ShaderProgram {
 public:
 	ShaderProgram(const char* vertSrc, const char* fragSrc);
+	void bind();
+	GLint getAttribLocation(const char* name);
+	GLint getUniformLocation(const char* name);
 private:
 	GLint program;
 	static GLint createShader(const char* source, GLenum type);

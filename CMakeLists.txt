@@ -10,9 +10,11 @@ link_directories( PUBLIC /usr/local/lib PUBLIC /usr/lib64 PUBLIC STATIC $HOME/Do
 
 set( SRCS
 	src/utils.cpp
+	src/vector_math.cpp
 	src/main.cpp
 	src/Window.cpp
 	src/ShaderProgram.cpp
+	src/Quad.cpp
 )
 add_executable( rubiks ${SRCS} )
 

@@ -7,7 +7,7 @@ std::string loadTextFile(const char* path){
 	std::stringstream ss;
 	std::string line;
 	while(std::getline(ifs, line)){
-		ss << line;
+		ss << line << "\n";
 	}
 	return ss.str();
 }
