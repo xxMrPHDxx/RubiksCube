@@ -15,7 +15,7 @@ public:
 private:
 	ShaderProgram* shader;
 	GLuint a_pos, u_view, u_cam, u_obj, u_color;
-	GLuint bufVertArr, bufVert, bufInds;
+	GLuint VAO, VBO, EBO;
 };
 
 #endif

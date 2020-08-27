@@ -6,7 +6,7 @@ find_package( OpenGL REQUIRED )
 find_package( GLEW REQUIRED )
 
 include_directories( /usr/bin/include )
-link_directories( PUBLIC /usr/local/lib PUBLIC /usr/lib64 PUBLIC STATIC $HOME/Downloads/glew-2.1.0/lib )
+link_directories( PUBLIC /usr/local/lib PUBLIC /usr/lib64 )
 
 set( SRCS
 	src/utils.cpp

@@ -8,6 +8,12 @@ ShaderProgram::ShaderProgram(const char* vertSrc, const char* fragSrc){
 	GLint vert = ShaderProgram::createShader(vertSrc, GL_VERTEX_SHADER);
 	GLint frag = ShaderProgram::createShader(fragSrc, GL_FRAGMENT_SHADER);
 	this->program = ShaderProgram::createProgram(vert, frag);
+	glDeleteShader(vert);
+	glDeleteShader(frag);
+}
+
+ShaderProgram::~ShaderProgram(){
+	glDeleteProgram(program);
 }
 
 void ShaderProgram::bind(){
@@ -21,14 +27,18 @@ GLint ShaderProgram::getAttribLocation(const char* name){
 GLint ShaderProgram::getUniformLocation(const char* name){
 	return glGetUniformLocation(this->program, name);
 }
+
+void ShaderProgram::bindFragDataLocation(const int pos, const char* name){
+	glBindFragDataLocation(this->program, pos, name);
+}
+
 /************************************************/
 /*               STATIC METHODS                 */
 /************************************************/
 
 GLint ShaderProgram::createShader(const char* source, GLenum type){
 	GLint shader = glCreateShader(type);
-	GLint len = strlen(source);
-	glShaderSource(shader, 1, &source, &len);
+	glShaderSource(shader, 1, &source, NULL);
 	glCompileShader(shader);
 	
 	GLint compiled = 0;
@@ -52,9 +62,8 @@ GLint ShaderProgram::createProgram(GLint vert, GLint frag){
 	GLint program = glCreateProgram();
 	glAttachShader(program, vert);
 	glAttachShader(program, frag);
+	glBindFragDataLocation(program, 0, "finalColor");
 	glLinkProgram(program);
-	glDeleteShader(vert);
-	glDeleteShader(frag);
 
 	GLint linked = 0;
 	glGetProgramiv(program, GL_LINK_STATUS, &linked);

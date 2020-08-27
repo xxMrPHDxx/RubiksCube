@@ -1,5 +1,4 @@
 #version 300 es
-
 in vec3 a_pos;
 
 uniform mat4 u_view;
