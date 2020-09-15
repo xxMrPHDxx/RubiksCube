@@ -28,11 +28,7 @@ int main(){
 	mat4 proj = mat4::perspective(M_PI/2.0f, WIDTH*1.0f/HEIGHT, 0.01f, 100.0f);
 
 	Quad quad;
-	quad.setCamera(proj, view);
-
-	mat4 obj = mat4::identity();
-	obj * proj * view;
-	print_mat(obj);
+	quad.setCamera(mat4::identity(), mat4::identity());
 
 	while(window.isOpen()){
 		glViewport(0, 0, WIDTH, HEIGHT);

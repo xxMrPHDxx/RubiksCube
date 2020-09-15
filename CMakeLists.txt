@@ -10,7 +10,6 @@ link_directories( PUBLIC /usr/local/lib PUBLIC /usr/lib64 )
 
 set( SRCS
 	src/utils.cpp
-	src/vector_math.cpp
 	src/main.cpp
 	src/Window.cpp
 	src/ShaderProgram.cpp
@@ -19,4 +18,5 @@ set( SRCS
 add_executable( rubiks ${SRCS} )
 
 target_link_libraries( rubiks GLEW GLU OpenGL::GL glfw3 X11 pthread )
+target_link_libraries( rubiks vector_math )
 target_link_libraries( rubiks ${CMAKE_DL_LIBS} ) 

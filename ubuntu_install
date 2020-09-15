@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+echo 'Removing CMakeFiles and CMakeCache.txt'
+sudo rm -r CMakeFiles CMakeCache.txt
+
+echo 'Installing libraries needed for glfw'
+sudo apt install libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev
+
+echo 'Building and installing glfw'
+cmake .
+sudo make install
+
+echo 'Installing gl and glu libraries'
+sudo apt install libgl-dev libglu1-mesa-dev
+
+echo 'Done!'

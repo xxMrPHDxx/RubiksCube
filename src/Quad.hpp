@@ -2,7 +2,8 @@
 #define QUAD_HPP
 
 #include <GL/glew.h>
-#include "vector_math.hpp"
+#include <vector_math/vec3.hpp>
+#include <vector_math/mat4.hpp>
 
 class ShaderProgram;
 
